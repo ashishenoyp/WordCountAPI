@@ -23,7 +23,7 @@ public class ServiceImpl implements Service {
     public void setup() {
         wordOccurrenceCountsMap = new HashMap<>();
         wordRequestCountsMap = new HashMap<>();
-        // Load the resources file
+        // Parse all the text files and count them:
         wordCounter.parseFiles(wordOccurrenceCountsMap);
     }
 
