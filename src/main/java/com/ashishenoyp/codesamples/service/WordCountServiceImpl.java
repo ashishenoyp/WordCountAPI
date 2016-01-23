@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Component
-public class ServiceImpl implements Service {
+public class WordCountServiceImpl implements WordCountService {
     private Map<String, Long> wordRequestCountsMap;
     private Map<String, Long> wordOccurrenceCountsMap;
 

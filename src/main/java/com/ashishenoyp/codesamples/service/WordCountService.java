@@ -4,7 +4,7 @@
 
 package com.ashishenoyp.codesamples.service;
 
-public interface Service {
+public interface WordCountService {
     public long getNumWordRequests(String queryWord);
 
     public long getNumWordOccurrences(String queryWord);
