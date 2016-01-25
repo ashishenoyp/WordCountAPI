@@ -11,10 +11,7 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class ApiController {
@@ -23,12 +20,13 @@ public class ApiController {
     @Autowired
     private WordCountService wordCountService;
 
-    @RequestMapping(value = "/wordCountService", method = RequestMethod.GET)
+    @ResponseBody
+    @RequestMapping(value = "/service", method = RequestMethod.GET)
     public ResponseEntity<Response> queryWord(@RequestParam (value = "word") String queryWord) {
         logger.debug("GET method called for word: " + queryWord);
         queryWord = queryWord.toLowerCase();
 
-        if (queryWord == null) {
+        if (queryWord == null || queryWord.isEmpty()) {
             return new ResponseEntity<Response>(HttpStatus.BAD_REQUEST);
         }
 

@@ -1,0 +1,8 @@
+A server-side application built on Spring and provides an REST endpoint. The application accepts requests with an English word as a parameter and return an output composed of 2 integers:
+- The number of requests sent to this server with this word as a parameter
+- The number of occurrences of this word in the attached set of text files (which comes from Project Gutenberg)
+
+To run this project do:
+- mvn clean install
+- java -jar target/slicetest-0.0.1-SNAPSHOT.jar
+- curl 'http://localhost:8080/service?word=<qord to query>'

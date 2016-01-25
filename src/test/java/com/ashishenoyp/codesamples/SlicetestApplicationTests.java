@@ -35,7 +35,13 @@ public class SlicetestApplicationTests {
 
     @Test
     public void testWordCountNullWord() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/service?word"))
+        mockMvc.perform(MockMvcRequestBuilders.get("/service?"))
+                .andExpect(status().isBadRequest());
+    }
+
+    @Test
+    public void testWordCountEmptyWord() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get("/service?word="))
                 .andExpect(status().isBadRequest());
     }
 
