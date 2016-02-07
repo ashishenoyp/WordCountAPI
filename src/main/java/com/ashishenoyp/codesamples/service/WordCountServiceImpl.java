@@ -37,7 +37,7 @@ public class WordCountServiceImpl implements WordCountService {
     }
 
     @Override
-    public long getNumWordRequests(String queryWord) {
+    synchronized public long getNumWordRequests(String queryWord) {
         Long numRequests = wordRequestCountsMap.get(queryWord);
         if (numRequests == null) {
             wordRequestCountsMap.put(queryWord, 1L);
